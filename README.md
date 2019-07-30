@@ -36,3 +36,4 @@ Test case for Gong WPF Drag Drop library
 ## Changes from the "master" base code
 * This branch narrows the "Group Two" drop target to just the TextBlock inside the TabItem's header, instead of the whole TabItem.
 ** This fixes the problem of showing the drop adorner when dragging things over the content area of the tab, although it's still shown when dragging an item from Group Two's list over the Group Two header, which is not desired.
+* This branch furthermore tries to use the DropAdornerTemplateSelector to try to do something more clever, but it's being overridden by the DragAdornerTemplate.

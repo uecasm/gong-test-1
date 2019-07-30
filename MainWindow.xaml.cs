@@ -73,4 +73,12 @@ namespace GongDragTest
             // do nothing for this test case
         }
     }
+
+    public class TestTemplateSelector : DataTemplateSelector
+    {
+        public override DataTemplate SelectTemplate(object item, DependencyObject container)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

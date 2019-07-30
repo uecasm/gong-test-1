@@ -17,15 +17,15 @@ Test case for Gong WPF Drag Drop library
 * You should be able to drag the items in Group 2 to the red box to delete them.
 * You cannot drag the items in Group 2 to reorder them, or to anywhere except the red box.
 * One of the Drag or Effect adorners should indicate what happens when you drag it over each unique target.
-** Initially I just wanted to use the Effect adorner by itself, but when I ran into the clipping and templating problems I switched to using the Drag adorner by itself, since that better supported target-based templates.
-** For the purposes of this test case I've left both enabled just so that you can see the separate issues with each approach.
+    * Initially I just wanted to use the Effect adorner by itself, but when I ran into the clipping and templating problems I switched to using the Drag adorner by itself, since that better supported target-based templates.
+    * For the purposes of this test case I've left both enabled just so that you can see the separate issues with each approach.
 
 ## Unintended behaviour
 * The Effect adorner clips past the edge of the window when you drag over the red box (while the Drag adorner does not).
 * There doesn't appear to be any way to show entirely different content in the Effect adorner based on drop target (although it is possible to do some limited data customisation, as demonstrated).
-** There also doesn't appear to be any way to define a template in the XAML which can access the `EffectText`/`DestinationText`; instead something weirder in the code is required.
+    * There also doesn't appear to be any way to define a template in the XAML which can access the `EffectText`/`DestinationText`; instead something weirder in the code is required.
 * When dragging Group 2 items over the Group 2 tab header, the Drag adorners for the tab header are displayed.
-** The intended behaviour is to not show anything (or at most to show a "no drop" cursor), because this is not a valid drop target for those items. 
+    * The intended behaviour is to not show anything (or at most to show a "no drop" cursor), because this is not a valid drop target for those items. 
 
 ## Attempts to resolve this that didn't work
 * Setting an `EffectMoveAdornerTemplate` on the drag target.
@@ -35,5 +35,5 @@ Test case for Gong WPF Drag Drop library
 
 ## Changes from the "master" base code
 * This branch narrows the "Group Two" drop target to just the TextBlock inside the TabItem's header, instead of the whole TabItem.
-** This fixes the problem of showing the drop adorner when dragging things over the content area of the tab, although it's still shown when dragging an item from Group Two's list over the Group Two header, which is not desired.
+    * This fixes the problem of showing the drop adorner when dragging things over the content area of the tab, although it's still shown when dragging an item from Group Two's list over the Group Two header, which is not desired.
 * This branch furthermore tries to use the DropAdornerTemplateSelector to try to do something more clever, but it's being overridden by the DragAdornerTemplate.

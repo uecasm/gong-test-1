@@ -61,9 +61,12 @@
                          dd:DragDrop.DragDirectlySelectedOnly="True" dd:DragDrop.DragAdornerTemplate="{StaticResource DragItemTemplate}"
                          dd:DragDrop.UseDefaultEffectDataTemplate="True" />
             </TabItem>
-            <TabItem Header="Group Two"
-                     dd:DragDrop.IsDropTarget="True" dd:DragDrop.DropHandler="{Binding}"
-                     dd:DragDrop.ShowAlwaysDropTargetAdorner="True" dd:DragDrop.DropAdornerTemplate="{StaticResource DragToGroup2Template}">
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Group Two"
+                               dd:DragDrop.IsDropTarget="True" dd:DragDrop.DropHandler="{Binding}"
+                               dd:DragDrop.DropAdornerTemplate="{StaticResource DragToGroup2Template}" />
+                </TabItem.Header>
                 <ListBox Margin="5" ItemsSource="{Binding Group2}" HorizontalContentAlignment="Stretch"
                          dd:DragDrop.IsDragSource="True" dd:DragDrop.IsDropTarget="True" dd:DragDrop.DropHandler="{Binding}"
                          dd:DragDrop.DragDirectlySelectedOnly="True" dd:DragDrop.DragAdornerTemplate="{StaticResource DragItemTemplate}"

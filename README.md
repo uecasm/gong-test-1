@@ -24,7 +24,7 @@ Test case for Gong WPF Drag Drop library
 * The Effect adorner clips past the edge of the window when you drag over the red box (while the Drag adorner does not).
 * There doesn't appear to be any way to show entirely different content in the Effect adorner based on drop target (although it is possible to do some limited data customisation, as demonstrated).
 ** There also doesn't appear to be any way to define a template in the XAML which can access the `EffectText`/`DestinationText`; instead something weirder in the code is required.
-* When dragging Group 2 items over the Group 2 listbox, the Drag adorners for the tab header are displayed.
+* When dragging Group 2 items over the Group 2 tab header, the Drag adorners for the tab header are displayed.
 ** The intended behaviour is to not show anything (or at most to show a "no drop" cursor), because this is not a valid drop target for those items. 
 
 ## Attempts to resolve this that didn't work
@@ -32,3 +32,7 @@ Test case for Gong WPF Drag Drop library
 * Setting `dd:DragDrop.DropAdornerTemplate="{x:Null}"` on the `ListBox` inside Group 2.
 * Setting the `EventType` to `Bubble` on the `TabItem`.
 * Probably some other things that I've forgotten.
+
+## Changes from the "master" base code
+* This branch narrows the "Group Two" drop target to just the TextBlock inside the TabItem's header, instead of the whole TabItem.
+** This fixes the problem of showing the drop adorner when dragging things over the content area of the tab, although it's still shown when dragging an item from Group Two's list over the Group Two header, which is not desired.

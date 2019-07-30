@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Shapes;
@@ -51,7 +52,7 @@ namespace GongDragTest
                 }
                 else if (ReferenceEquals(dropInfo.DragInfo.SourceCollection, Group1))
                 {
-                    if (dropInfo.VisualTarget is TabItem)
+                    if (dropInfo.VisualTarget is TextBlock)
                     {
                         // move item from Group 1 tab to Group 2 tab
                         dropInfo.Effects = DragDropEffects.Move;
